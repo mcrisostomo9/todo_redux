@@ -1,9 +1,10 @@
 import React from 'react';
-import styles from './app.css';
+import styles from './css/app.css';
 
-const App = () => (
-    <div className={styles.app}>
-        <h1>Welcome to React!</h1>
+const App = (props) => (
+    <div className={`${styles.app} container`}>
+        <h1>Todoe React</h1>
+        {props.children}
     </div>
 );
 
