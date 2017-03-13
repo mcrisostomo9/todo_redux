@@ -8,16 +8,18 @@ class TodoIndex extends Component {
   componentWillMount(){
     this.props.fetchTodos().then(data => {
       console.log('Fetch data: ', data.payload.data.feed);
-    });
-    }
+    })
+  }
 
   renderTodos(){
-    return this.props.todos.map(item=>{
+    return this.props.todos.map( item =>{
       return(
-        <li className='list-group-item' key={item.id}>
-          <strong>{item.title}</strong>
-          <div className={styles.pullRight}>Complete By: {item.dueDate}</div>
-        </li>
+        <Link to={`todo/${item.id}`} key={item.id}>
+            <li className='list-group-item'>
+              <strong>{item.title}</strong>
+              <div className={styles.pullRight}>Complete By: {item.dueDate}</div>
+            </li>
+        </Link>
       )
     })
   }
@@ -26,9 +28,9 @@ class TodoIndex extends Component {
   render(){
     return (
       <div>
-        <Link to='/todo-new' className='btn btn-outline-primary float-right'>Add new To Do item </Link>
-        <h2>This will be a list of todoe</h2>
-        <ul>
+        <Link to='/todo-new' className='btn btn-outline-primary float-right'>Add  item </Link>
+        <h2>Where are my todos?</h2>
+        <ul className='list-group'>
           {this.renderTodos()}
         </ul>
       </div>

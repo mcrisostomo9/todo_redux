@@ -3,6 +3,7 @@ import {Field, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import {createTodo} from '../actions/index.js';
 import {browserHistory} from 'react-router';
+import {Link} from 'react-router';
 
 const createInput = function(input, type, error){
   const inputClass = `form-control ${error ? 'form-control-danger': ''}`;
@@ -58,6 +59,7 @@ class TodoNew extends React.Component{
             <Field name='completeBy' component={renderInput} type='date' label="Complete By"/>
 
           <button className='btn btn-outline-primary'>Add Item</button>
+          <Link to='/' className='btn btn-danger'>Cancel</Link>
         </form>
       </div>
     )
