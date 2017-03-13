@@ -7,7 +7,7 @@ import styles from './css/todo_index.css';
 class TodoIndex extends Component {
   componentWillMount(){
     this.props.fetchTodos().then(data => {
-      console.log('Fetch data: ', data);
+      console.log('Fetch data: ', data.payload.data.feed);
     });
     }
 
